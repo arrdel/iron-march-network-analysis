@@ -1,0 +1,55 @@
+# Configuration file for Iron March Network Analysis
+
+# Data paths
+data:
+  raw_data_path: "data/raw/original_data.csv"
+  processed_data_path: "data/processed/cleaned_data.csv"
+  
+# Output paths
+output:
+  images_dir: "outputs/images"
+  graphs_dir: "outputs/graphs"
+  wordclouds_dir: "outputs/wordclouds"
+
+# Data preprocessing
+preprocessing:
+  time_column: "msg_date"
+  text_column: "orig_text"
+  author_column: "msg_author_id"
+  topic_column: "msg_topic_id"
+  
+# Text cleaning
+text_cleaning:
+  remove_html: true
+  remove_urls: true
+  normalize_whitespace: true
+  remove_special_chars: false
+  
+# Network analysis
+network:
+  source_col: "msg_author_id"
+  target_col: "msg_topic_id"
+  temporal_window: "M"  # D=day, W=week, M=month, Y=year
+  
+# Visualization
+visualization:
+  figure_size: [12, 8]
+  dpi: 300
+  style: "whitegrid"
+  color_palette: "viridis"
+  
+# Centrality measures
+centrality:
+  calculate_degree: true
+  calculate_betweenness: true
+  calculate_closeness: true
+  calculate_eigenvector: true
+  
+# Community detection
+community:
+  method: "louvain"  # Options: louvain, greedy
+  
+# Logging
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

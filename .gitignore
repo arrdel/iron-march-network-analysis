@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Data files (keep structure but ignore large files)
+*.csv
+*.xlsx
+*.xls
+!example_*.csv
+!sample_*.csv
+
+# Output files
+outputs/images/*.png
+outputs/images/*.jpg
+outputs/images/*.jpeg
+outputs/graphs/*
+outputs/wordclouds/*
+!outputs/images/.gitkeep
+!outputs/graphs/.gitkeep
+!outputs/wordclouds/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Distribution / packaging
+*.whl
+
+# Spacy models
+*.spacy
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Project specific
+Actors_Activity/*.jpg
+graph_animation/*
+wordclouds/*
+*.pdf
