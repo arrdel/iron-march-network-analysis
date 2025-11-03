@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners -->
+  <meta name="description"
+    content="Network analysis of Iron March forum revealing far-right group interactions, key influencers, and temporal dynamics from 2011-2016">
+  <meta property="og:title" content="Iron March Network Analysis - Understanding Far-right Forum Activities" />
+  <meta property="og:description"
+    content="Research analyzing communication patterns and network structures in the Iron March far-right extremism forum using graph analytics and NLP" />
+  <meta property="og:url" content="https://arrdel.github.io/iron-march-network-analysis/" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="Iron March Network Analysis - Far-right Forum Study">
+  <meta name="twitter:description"
+    content="Research analyzing communication patterns and network structures in the Iron March extremism forum">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords"
+    content="network analysis, social network, graph analytics, extremism research, Iron March, far-right groups, knowledge graph, centrality analysis, community detection, NLP">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Iron March Network Analysis - Understanding Far-right Forum Activities</title>
+  <link rel="icon" type="image/x-icon" href="">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Understanding Far-right Groups Activities through
+              Knowledge Graph Analysis</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://github.com/tanvirhossain" target="_blank">Tanvir Hossain</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/arrdel" target="_blank">Adele Chinda</a><sup>*</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Georgia State University<br></span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1TrbQ124vRXmkBRspJBSdn_kzTcXmLhq3/view?usp=sharing"
+                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Report</span>
+                  </a>
+                </span>
+
+                <!-- Supplementary PDF link
+                <span class="link-block">
+                  <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span> -->
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/arrdel/iron-march-network-analysis" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser video (commented out)
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          Your video here
+          <source src="static/videos/banner_video.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat
+          pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
+        </h2>
+      </div>
+    </div>
+  </section>
+  End teaser video -->
+
+  <!-- Teaser image-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/teaser.png" alt="Iron March Network Analysis Teaser" style="width:100%" />
+        <h2 class="subtitle has-text-centered">
+          Network analysis of far-right forum interactions revealing key influencers, community structures,
+          and temporal dynamics in the Iron March dataset spanning from 2011 to 2016.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser image -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Graph analytics has become instrumental in uncovering insights across various
+              domains, specifically social networks. It serves as a crucial tool for analyzing
+              the relationship between users in different online platforms. On the other hand,
+              the knowledge graph is an organized representation of information where entities
+              are connected through relations. Like human knowledge, it is capable of storing,
+              querying, and analyzing complex relations. In this research, we apply methods
+              of social network analysis to examine the communication patterns among partic-
+              ipants in an online forum recognized for far-right extremism. Our study demon-
+              strates the actors’ relationships and activities through different aspects of applica-
+              tions over networks. In addition to this, with the assistance of Natural Language
+              Processing (NLP) tools, we want to extract the entities to formulate knowledge
+              graphs for a more semantically understanding of the relations between the actors.
+              In extensive analysis, we identify the influential actors and map their relationships
+              throughout the course of 76 monthly networks. Moreover, we illustrate the evo-
+              lution of networks over that period, and their connections with significant events.
+              The findings of this analysis aim to understand the nature of interactions and net-
+              works and to allow practitioners to take necessary precautions to mitigate far-right
+              activities on various online platforms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Related Links -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Related Links</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              Radical group activists capitalize on online and social media platforms to spread information and
+              propaganda among similar-minded personnel, coordinate actions, and recruit new members. They
+              employ public (such as Twitter, Instagram, and internet forums) and private (such as WhatsApp,
+              Telegram, and message boards) platforms. Members share their ideology-related thoughts on public
+              platforms and consistently interact with a community of users. In contrast, to recruit new members,
+              they privately share ideological content, such as articles, quotes, and events information with the
+              users. These platforms often function as echo chambers, where like-minded individuals mutually
+              reinforce each other’s ideas, gradually aligning ideologies without external challenge, facilitating
+              the unchecked spread of extremism. Most of the contents are memes and info-graphics that
+              spread extremist ideologies.
+              Additionally, some participants are especially skillful in deriving and propagating narratives aligned
+              with their beliefs and thus have the potential to wield substantial influence. Hence, the narratives
+              they propagate can be widely disseminated online to both targeted and diverse audiences. Moreover,
+              by leveraging those platforms, these individuals and groups plan and coordinate new events through
+              real-time communication. Besides, they may also raise funds and sell their ideological products
+              through these platforms, further enhancing their capacity.
+
+            </p>
+            <p>
+
+              Semantic networks help machines to understand words’ meaning, text, and lexical analysis from a
+              text corpus. To semantically understand the relation among different entities in a text corpus building
+              a knowledge graph is essential. Knowledge graphs are being employed in many domain-specific
+              tasks such as cultural heritage information preservation, medical terminology integration, keeping
+              drug-drug and protein-protein interaction information. Networks and knowledge graph analyses can
+              play a key role in reducing the misuse of online platforms to spread hate speech and violence. The
+              analyses can also be beneficial for policymakers in designing preventive measures and implementing
+              appropriate strategies to combat far-right activities.
+              In this project, we have already done the basic network analysis on the conversations between dif-
+              ferent group members in the Iron March Web Forum. Our other paramount objective of the project
+              is that we will apply Natural Language Processing (NLP) tools to extract the conservation content
+              and relevant topics discussed in different far-right groups. After getting the topics we create < user,
+                topic, user> and < user, time, user> triplets to form knowledge graphs. To do so, we have extracted
+                  the effective named entities using a state-of-the-art fine-tuned Bert model [18]. From the entities,
+                  we want to form the knowledge graphs to understand their relations more semantically. In addition
+                  to this concrete information, we want to apply ontology in the graph relations to make it more un-
+                  derstandable. We embedded knowledge graphs, embedded the text corpus of a month among many
+                  users using a miniML sentence transformer. We found some similarities in the 2 −dimensional
+                  plottings of the embeddings that show a research direction to apply knowledge graph analysis on
+                  more complex network structures.
+            </p>
+            <p>First, we create a network of users based on common topics in their posts to analyze the Iron-
+              March forums activities. The conversation timestamps between activists are segmented into 30-day windows.
+              In a single window, all the active members are considered as the nodes of the network. In the
+              network, we connect two members with an edge if they post on the same topic thread. Edges are
+              labeled with the topic. If a user posts on a topic and gets no response within that 30-day window,
+              then a self-edge is assigned to that user. Through this process, a total of 76 monthly networks have
+              been formed. Then we apply different functions and algorithms to detect the influential actors, and
+              important events, and analyze the evolution of the networks</p>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Related Links -->
+
+  <!-- Image carousel -->
+  <!-- <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item"> -->
+  <!-- Your image here -->
+  <!-- <img src="static/images/carousel1.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              First image description.
+            </h2>
+          </div>
+          <div class="item"> -->
+  <!-- Your image here -->
+  <!-- <img src="static/images/carousel2.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              Second image description.
+            </h2>
+          </div>
+          <div class="item"> -->
+  <!-- Your image here -->
+  <!-- <img src="static/images/carousel3.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              Third image description.
+            </h2>
+          </div>
+          <div class="item"> -->
+  <!-- Your image here -->
+  <!-- <img src="static/images/carousel4.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              Fourth image description.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End image carousel -->
+
+
+
+
+  <!-- Youtube video -->
+  <!-- <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container"> -->
+  <!-- Paper video. -->
+  <!-- <h2 class="title is-3">Video Presentation</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+
+            <div class="publication-video"> -->
+  <!-- Youtube embed code here -->
+  <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End youtube video -->
+
+
+  <!-- Video carousel -->
+  <!-- <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Another Carousel</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
+  <!-- Your video file here -->
+  <!-- <source src="static/videos/carousel1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video2">
+            <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
+  <!-- Your video file here -->
+  <!-- <source src="static/videos/carousel2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video3">
+            <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
+  <!-- Your video file here -->
+  <!-- <source src="static/videos/carousel3.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End video carousel -->
+
+
+
+
+
+
+  <!-- Paper poster -->
+  <!-- <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title">Poster</h2>
+
+        <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
+        </iframe>
+
+      </div>
+    </div>
+  </section> -->
+  <!--End paper poster -->
+
+
+  <!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+  </section> -->
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              footer. <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
